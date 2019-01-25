@@ -1,11 +1,11 @@
 xminid-bionic
 =============
 
-<img alt="Ubuntu desktop using the xmonad window manager" src="screenshot.png" width="640">
-
 A minimal xmonad configuration for Ubuntu 18.04 "Bionic Beaver".
 
 By Kilian Evang (https://github.com/texttheater).
+
+<img alt="Ubuntu desktop using the xmonad window manager" src="screenshot.png" width="640">
 
 Rationale
 ---------
