@@ -1,7 +1,7 @@
 xminid-bionic
 =============
 
-A minimal xmonad configuration for Ubuntu 18.04 "Bionic Beaver".
+A minimal xmonad configuration with panels for Ubuntu 18.04 "Bionic Beaver".
 
 By Kilian Evang (https://github.com/texttheater).
 
@@ -29,6 +29,7 @@ Setup
 To install everything you need, run these commands in a terminal:
 
     $ sudo apt install xmonad gnome-panel
+    $ cd
     $ git clone https://github.com/texttheater/xminid-bionic .xmonad
 
 From now on, when logging in, choose the "GNOME Flashback (XMonad)" session.
