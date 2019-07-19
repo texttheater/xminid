@@ -11,6 +11,12 @@ main = xmonad $ gnomeConfig {
         -- open applications on specific workspaces
         className =? "update-manager" --> doShift "9",
         className =? "Update-manager" --> doShift "9"
+    ],
+    startupHook = composeAll [
+        startupHook gnomeConfig,
+        -- start update-manager on startup because we don't have the normal
+        -- Ubuntu session to do that for us
+        spawn "update-manager"
     ]
 } `additionalKeys` [
     -- Workaround for
