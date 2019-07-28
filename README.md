@@ -18,10 +18,16 @@ and indicators.
 Recent Ubuntu releases support this requirement *almost* out of the box, thanks
 to a dedicated GNOME Flashback session that uses xmonad as the window manager.
 However, with an empty configuration, you won't have panels. With the default
-`XMonad.Config.Gnome`, many keybindings won't work properly due to conflicts
-with GNOME keybindings or bugs. So I thought I'd put together a curated minimal
-xmonad config that fixes these issues but otherwise gives you a clean slate to
-add your own favorite configuration options.
+`XMonad.Config.Gnome`, there are still some unacceptable problems:
+
+* Many keybindings won't work properly due to conflicts with GNOME keybindings
+  or bugs.
+* Applications going fullscreen (like media players or browsers) is not
+  supported.
+
+So I thought I'd put together a curated minimal xmonad config that fixes these
+issues but otherwise gives you a clean slate to add your own favorite
+configuration options.
 
 Setup
 -----
