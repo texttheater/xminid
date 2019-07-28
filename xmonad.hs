@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Config.Gnome
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName (setWMName)
+import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
@@ -27,7 +28,11 @@ main = xmonad $ gnomeConfig {
         handleEventHook gnomeConfig,
         -- fix fullscreen
         fullscreenEventHook
-    ]
+    ],
+    layoutHook = 
+        -- no borders around the only window on screen
+        smartBorders $
+        layoutHook gnomeConfig
 } `additionalKeys` [
     -- Workaround for
     -- https://bugs.launchpad.net/ubuntu/+source/xmonad/+bug/1813049
