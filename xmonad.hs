@@ -1,3 +1,5 @@
+import Control.Monad
+import Data.Maybe
 import XMonad
 import XMonad.Config.Gnome
 import XMonad.Hooks.EwmhDesktops
@@ -18,8 +20,8 @@ main = xmonad $ gnomeConfig {
     startupHook = composeAll [
         startupHook gnomeConfig,
         -- fix fullscreen for Firefox
-        -- https://gist.github.com/sboehler/5f48017a6b53805485180a9a6d81196b
-        setFullscreenSupported,
+        -- https://github.com/xmonad/xmonad-contrib/issues/288
+        fullscreenStartupHook,
         -- start update-manager on startup because we don't have the normal
         -- Ubuntu session to do that for us
         spawn "update-manager"
@@ -39,22 +41,13 @@ main = xmonad $ gnomeConfig {
     ((mod4Mask .|. shiftMask, xK_q), spawn "gnome-session-quit --logout")
     ]
 
-setFullscreenSupported :: X ()
-setFullscreenSupported = withDisplay $ \dpy -> do
+fullscreenStartupHook :: X ()
+fullscreenStartupHook = withDisplay $ \dpy -> do
     r <- asks theRoot
     a <- getAtom "_NET_SUPPORTED"
     c <- getAtom "ATOM"
-    supp <- mapM getAtom [
-        "_NET_WM_STATE_HIDDEN",
-        "_NET_WM_STATE_FULLSCREEN", -- XXX Copy-pasted to add this line
-        "_NET_NUMBER_OF_DESKTOPS",
-        "_NET_CLIENT_LIST",
-        "_NET_CLIENT_LIST_STACKING",
-        "_NET_CURRENT_DESKTOP",
-        "_NET_DESKTOP_NAMES",
-        "_NET_ACTIVE_WINDOW",
-        "_NET_WM_DESKTOP",
-        "_NET_WM_STRUT"
-        ]
-    io $ changeProperty32 dpy r a c propModeReplace (fmap fromIntegral supp)
-    setWMName "xmonad"
+    f <- getAtom "_NET_WM_STATE_FULLSCREEN"
+    io $ do
+        sup <- (join . maybeToList) <$> getWindowProperty32 dpy a r
+        when (fromIntegral f `notElem` sup) $
+            changeProperty32 dpy r a c propModeAppend [fromIntegral f]
