@@ -14,8 +14,20 @@ main = xmonad $ gnomeConfig {
     manageHook = composeAll [
         manageHook gnomeConfig,
         -- open applications on specific workspaces
+        className =? "Mail" --> doShift "1",
+        className =? "Thunderbird" --> doShift "1",
+        className =? "Navigator" --> doShift "2",
+        className =? "Firefox" --> doShift "2",
+        className =? "evince" --> doShift "6",
+        className =? "Evince" --> doShift "6",
         className =? "update-manager" --> doShift "9",
-        className =? "Update-manager" --> doShift "9"
+        className =? "Update-manager" --> doShift "9",
+        className =? "microsoft teams - preview" --> doShift "9",
+        className =? "Microsoft Teams - Preview" --> doShift "9",
+        className =? "skype" --> doShift "9",
+        className =? "Skype" --> doShift "9",
+        className =? "slack" --> doShift "9",
+        className =? "Slack" --> doShift "9"
     ],
     startupHook = composeAll [
         startupHook gnomeConfig,
