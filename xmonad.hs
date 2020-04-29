@@ -18,8 +18,13 @@ main = xmonad $ gnomeConfig {
         className =? "Thunderbird" --> doShift "1",
         className =? "Navigator" --> doShift "2",
         className =? "Firefox" --> doShift "2",
+        className =? "libreoffice" --> doShift "5",
+        className =? "libreoffice-startcenter" --> doShift "5",
+        className =? "libreoffice-writer" --> doShift "5",
         className =? "evince" --> doShift "6",
         className =? "Evince" --> doShift "6",
+        className =? "mendeleydesktop.x86_64" --> doShift "8",
+        className =? "Mendeley Desktop" --> doShift "8",
         className =? "update-manager" --> doShift "9",
         className =? "Update-manager" --> doShift "9",
         className =? "microsoft teams - preview" --> doShift "9",
@@ -27,7 +32,8 @@ main = xmonad $ gnomeConfig {
         className =? "skype" --> doShift "9",
         className =? "Skype" --> doShift "9",
         className =? "slack" --> doShift "9",
-        className =? "Slack" --> doShift "9"
+        className =? "Slack" --> doShift "9",
+        className =? "zoom" --> doShift "9"
     ],
     startupHook = composeAll [
         startupHook gnomeConfig,
