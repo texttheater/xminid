@@ -1,9 +1,10 @@
-xminid-bionic
-=============
+xminid
+======
 
-A minimal xmonad configuration with panels for Ubuntu 18.04 "Bionic Beaver".
+A minimal xmonad configuration with panels for Ubuntu 18.04 “Bionic Beaver” and
+Ubuntu 20.04 “Focal Fossa”.
 
-By Kilian Evang (https://github.com/texttheater).
+By [Kilian Evang](https://github.com/texttheater).
 
 <img alt="Ubuntu desktop using the xmonad window manager" src="screenshot.png" width="640">
 
@@ -29,8 +30,8 @@ So I thought I'd put together a curated minimal xmonad config that fixes these
 issues but otherwise gives you a clean slate to add your own favorite
 configuration options.
 
-Setup
------
+Setup for Ubuntu 18.04
+----------------------
 
 To install everything you need, run these commands in a terminal:
 
@@ -38,14 +39,39 @@ To install everything you need, run these commands in a terminal:
     $ cd
     $ git clone https://github.com/texttheater/xminid-bionic .xmonad
 
-From now on, when logging in, choose the "GNOME Flashback (XMonad)" session.
-You can then control xmonad [with the default
+From now on, when logging in, choose the *GNOME Flashback (Xmonad)* session.
+
+Setup for Ubuntu 20.04
+----------------------
+
+For Ubuntu 20.04, the procedure is slightly more complex: due to a
+[bug](https://bugs.launchpad.net/ubuntu/+source/xmonad/+bug/1919089), the
+*GNOME Flashback (Xmonad)* session does not work. I recommend you use [Gekkio’s
+Gnome + XMonad](https://github.com/Gekkio/gnome-session-xmonad) session
+instead. The complete setup procedure then is:
+
+    $ sudo apt install xmonad gnome-panel
+    $ sudo add-apt-repository ppa:gekkio/xmonad
+    $ sudo apt-get update
+    $ sudo apt-get install gnome-session-xmonad
+    $ cd
+    $ git clone https://github.com/texttheater/xminid-bionic .xmonad
+
+From now on, when logging in, choose the *Gnome + XMonad* session.
+
+Usage
+-----
+
+After logging in, you can control xmonad [with the default
 keybindings](https://xmonad.org/documentation.html), only your mod key is Win
 instead of Alt.
 
-On first logging in like this, you will find that the GNOME panels are there,
-but are for some reason missing a clock and the menu where you access settings,
-logout, shutdown, etc. To fix this, alt-rightclick on the panel where you want
-them and choose "Add to Panel...". From the window that opens, add "Clock" and
-"User menu".
+On first logging in like this, you may find that the GNOME panels are missing
+some standard items, or they are in weird places, or duplicated. To fix
+this, alt-rightclick on the relevant places of the panels and choose *Add to
+Panel...*, *Move*, or *Remove from Panel* to add, move, or remove items as
+desired.
 
+To customize your xmonad setup, edit `~/.xmonad/xmonad.hs` as usual. For more
+information, check the [xmonad
+documentation](https://xmonad.org/documentation.html).
