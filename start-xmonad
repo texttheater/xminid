@@ -1,0 +1,13 @@
+#!/bin/bash
+
+xrandr | grep 'HDMI-1 connected' 
+
+if [ $? -eq 0 ]
+then
+	cp ~/.xmonad/lib/LocalConfigTwoDisplays.hs ~/.xmonad/lib/LocalConfig.hs
+else
+	cp ~/.xmonad/lib/LocalConfigOneDisplay.hs ~/.xmonad/lib/LocalConfig.hs
+fi
+
+xmonad --restart
+
