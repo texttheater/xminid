@@ -59,20 +59,16 @@ main = xmonad $ gnomeConfig {
         smartBorders $
         layoutHook gnomeConfig
 } `additionalKeys` ([
-    -- Workaround for
-    -- https://bugs.launchpad.net/ubuntu/+source/xmonad/+bug/1813049
-    ((mod4Mask .|. shiftMask, xK_q), spawn "gnome-session-quit --logout")
-    ] ++
-     [ ((mod4Mask, xK_1), windows (viewOnScreen 0 "1")),
-       ((mod4Mask, xK_2), windows (viewOnScreen 0 "2")),
-       ((mod4Mask, xK_3), windows (viewOnScreen 0 "3")),
-       ((mod4Mask, xK_4), windows (viewOnScreen 0 "4")),
-       ((mod4Mask, xK_5), windows (viewOnScreen 0 "5")),
-       ((mod4Mask, xK_6), windows (viewOnScreen lastDisplay "6")),
-       ((mod4Mask, xK_7), windows (viewOnScreen lastDisplay "7")),
-       ((mod4Mask, xK_8), windows (viewOnScreen lastDisplay "8")),
-       ((mod4Mask, xK_9), windows (viewOnScreen lastDisplay "9"))
-     ])
+    ((mod4Mask, xK_1), windows (viewOnScreen 0 "1")),
+    ((mod4Mask, xK_2), windows (viewOnScreen 0 "2")),
+    ((mod4Mask, xK_3), windows (viewOnScreen 0 "3")),
+    ((mod4Mask, xK_4), windows (viewOnScreen 0 "4")),
+    ((mod4Mask, xK_5), windows (viewOnScreen 0 "5")),
+    ((mod4Mask, xK_6), windows (viewOnScreen lastDisplay "6")),
+    ((mod4Mask, xK_7), windows (viewOnScreen lastDisplay "7")),
+    ((mod4Mask, xK_8), windows (viewOnScreen lastDisplay "8")),
+    ((mod4Mask, xK_9), windows (viewOnScreen lastDisplay "9"))
+])
 
 fullscreenStartupHook :: X ()
 fullscreenStartupHook = withDisplay $ \dpy -> do
