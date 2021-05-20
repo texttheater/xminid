@@ -67,8 +67,9 @@ main = xmonad $ gnomeConfig {
     ((mod4Mask, xK_6), windows (viewOnScreen lastDisplay "6")),
     ((mod4Mask, xK_7), windows (viewOnScreen lastDisplay "7")),
     ((mod4Mask, xK_8), windows (viewOnScreen lastDisplay "8")),
-    ((mod4Mask, xK_9), windows (viewOnScreen lastDisplay "9"))
-])
+    ((mod4Mask, xK_9), windows (viewOnScreen lastDisplay "9")),
+    ((mod4Mask, xK_q), spawn "if (xrandr | grep 'HDMI-1 connected'); then cp ~/.xmonad/lib/LocalConfigTwoDisplays.hs ~/.xmonad/lib/LocalConfig.hs; else cp ~/.xmonad/lib/LocalConfigOneDisplay.hs ~/.xmonad/lib/LocalConfig.hs; fi; if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
+    ])
 
 fullscreenStartupHook :: X ()
 fullscreenStartupHook = withDisplay $ \dpy -> do
