@@ -52,8 +52,8 @@ instead. The complete setup procedure then is:
 
     $ sudo apt install xmonad gnome-panel
     $ sudo add-apt-repository ppa:gekkio/xmonad
-    $ sudo apt-get update
-    $ sudo apt-get install gnome-session-xmonad
+    $ sudo apt update
+    $ sudo apt
     $ cd
     $ git clone https://github.com/texttheater/xminid-bionic .xmonad
 
@@ -75,3 +75,13 @@ desired.
 To customize your xmonad setup, edit `~/.xmonad/xmonad.hs` as usual. For more
 information, check the [xmonad
 documentation](https://xmonad.org/documentation.html).
+
+Cosmetics
+---------
+
+For making making the colors and panel icons look nice together, I recommend:
+
+    sudo apt install light-themes gnome-tweaks
+
+Then open `gnome-tweaks`, go to Appearance. Use Ambiance as Applications
+theme, Yaru as Cursor theme, and Ubuntu-mono-dark as Icons theme.
