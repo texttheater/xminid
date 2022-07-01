@@ -66,6 +66,10 @@ After logging in, you can control xmonad [with the default
 keybindings](https://xmonad.org/documentation.html), only your mod key is Win
 instead of Alt.
 
+The key binding for switching to the next layout (Mod+Space) conflicts with
+Ubuntu's default for switching to the next input source. Consider disabling or
+changing the latter via Ubuntu's keyboard shortcut settings.
+
 On first logging in like this, you may find that the GNOME panels are missing
 some standard items, or they are in weird places, or duplicated. To fix
 this, alt-rightclick on the relevant places of the panels and choose *Add to
