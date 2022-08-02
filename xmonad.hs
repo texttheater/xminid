@@ -37,9 +37,9 @@ main = xmonad $ gnomeConfig {
         className =? "Evince" --> doShift "6",
         className =? "okular" --> doShift "6",
         className =? "firefox" --> doShift "7",
-        className =? "Zotero" --> doShift "8",
-        className =? "mendeleydesktop.x86_64" --> doShift "8",
         className =? "Mendeley Desktop" --> doShift "8",
+        className =? "Mendeley Reference Manager" --> doShift "8",
+        className =? "Zotero" --> doShift "8",
         className =? "update-manager" --> doShift "9",
         className =? "Update-manager" --> doShift "9"
     ],
