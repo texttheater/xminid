@@ -53,7 +53,7 @@ instead. The complete setup procedure then is:
     $ sudo apt install xmonad gnome-panel
     $ sudo add-apt-repository ppa:gekkio/xmonad
     $ sudo apt update
-    $ sudo apt
+    $ sudo apt install gnome-session-xmonad
     $ cd
     $ git clone https://github.com/texttheater/xminid-bionic .xmonad
 
