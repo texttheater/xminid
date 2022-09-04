@@ -95,6 +95,8 @@ For making making the colors and panel icons look nice together, I recommend:
 
 Then open `gnome-tweaks`, go to Appearance. Use the following themes:
 
-| Cursor              | Yaru             |
-| Icons               | Ubuntu-mono-dark |
-| Legacy Applications | Ambiance         |
+| Type                | Recommended theme |
+-------------------------------------------
+| Cursor              | Yaru              |
+| Icons               | Ubuntu-mono-dark  |
+| Legacy Applications | Ambiance          |
