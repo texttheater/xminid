@@ -57,7 +57,13 @@ instead. The complete setup procedure then is:
     $ cd
     $ git clone https://github.com/texttheater/xminid-bionic .xmonad
 
-From now on, when logging in, choose the *Gnome + XMonad* session.
+In addition, to work around a [bug](https://github.com/Gekkio/gnome-session-xmonad/issues/14)
+where panels are not visible, run this:
+
+    $ gsettings set org.gnome.gnome-flashback root-background true
+    $ gsettings set org.gnome.gnome-flashback desktop false
+
+From now on, when logging in, choose the *Gnome+XMonad* session.
 
 Usage
 -----
@@ -87,5 +93,10 @@ For making making the colors and panel icons look nice together, I recommend:
 
     sudo apt install light-themes gnome-tweaks
 
-Then open `gnome-tweaks`, go to Appearance. Use Ambiance as Applications
-theme, Yaru as Cursor theme, and Ubuntu-mono-dark as Icons theme.
+Then open `gnome-tweaks`, go to Appearance. Use the following themes:
+
+| Type                | Recommended theme |
+| ------------------- | ----------------- |
+| Cursor              | Yaru              |
+| Icons               | Ubuntu-mono-dark  |
+| Legacy Applications | Ambiance          |
