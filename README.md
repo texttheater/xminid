@@ -1,8 +1,8 @@
 xminid
 ======
 
-A minimal xmonad configuration with panels for Ubuntu 18.04 “Bionic Beaver” and
-Ubuntu 20.04 “Focal Fossa”.
+A minimal xmonad configuration with panels for Ubuntu 18.04 “Bionic Beaver”,
+Ubuntu 20.04 “Focal Fossa”, and Ubuntu 22.04 “Jammy Jellyfish”.
 
 By [Kilian Evang](https://github.com/texttheater).
 
@@ -41,10 +41,10 @@ To install everything you need, run these commands in a terminal:
 
 From now on, when logging in, choose the *GNOME Flashback (Xmonad)* session.
 
-Setup for Ubuntu 20.04
-----------------------
+Setup for Ubuntu 20.04 and 22.04
+----------------------==========
 
-For Ubuntu 20.04, the procedure is slightly more complex: due to a
+For Ubuntu 20.04 and 22.04, the procedure is slightly more complex: due to a
 [bug](https://bugs.launchpad.net/ubuntu/+source/xmonad/+bug/1919089), the
 *GNOME Flashback (Xmonad)* session does not work. I recommend you use [Gekkio’s
 Gnome + XMonad](https://github.com/Gekkio/gnome-session-xmonad) session
@@ -76,11 +76,10 @@ The key binding for switching to the next layout (Mod+Space) conflicts with
 Ubuntu's default for switching to the next input source. Consider disabling or
 changing the latter via Ubuntu's keyboard shortcut settings.
 
-On first logging in like this, you may find that the GNOME panels are missing
-some standard items, or they are in weird places, or duplicated. To fix
-this, alt-rightclick on the relevant places of the panels and choose *Add to
-Panel...*, *Move*, or *Remove from Panel* to add, move, or remove items as
-desired.
+You may find that the GNOME panels are missing some standard items, or they are
+in weird places, or duplicated. To fix this, alt-rightclick on the relevant
+places of the panels and choose *Add to Panel...*, *Move*, or *Remove from
+Panel* to add, move, or remove items as desired.
 
 To customize your xmonad setup, edit `~/.xmonad/xmonad.hs` as usual. For more
 information, check the [xmonad
@@ -89,7 +88,7 @@ documentation](https://xmonad.org/documentation.html).
 Cosmetics
 ---------
 
-For making making the colors and panel icons look nice together, I recommend:
+For making the colors and panel icons look nice together, I recommend:
 
     sudo apt install light-themes gnome-tweaks
 
