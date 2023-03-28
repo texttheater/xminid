@@ -42,7 +42,7 @@ To install everything you need, run these commands in a terminal:
 From now on, when logging in, choose the *GNOME Flashback (Xmonad)* session.
 
 Setup for Ubuntu 20.04 and 22.04
-----------------------==========
+--------------------------------
 
 For Ubuntu 20.04 and 22.04, the procedure is slightly more complex: due to a
 [bug](https://bugs.launchpad.net/ubuntu/+source/xmonad/+bug/1919089), the
