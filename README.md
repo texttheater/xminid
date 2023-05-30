@@ -1,6 +1,9 @@
 xminid
 ======
 
+**Update 2023-05-30: I have switched to [Pop Shell](https://github.com/pop-os/shell).
+This repo will no longer be updated.**
+
 A minimal xmonad configuration with panels for Ubuntu 18.04 “Bionic Beaver”,
 Ubuntu 20.04 “Focal Fossa”, and Ubuntu 22.04 “Jammy Jellyfish”.
 
