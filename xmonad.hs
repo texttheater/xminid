@@ -7,11 +7,12 @@ import XMonad.Actions.OnScreen
 import XMonad.Config.Gnome
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
+import XMonad.StackSet (view)
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
 viewOnScreen' sid i =
-    windows (viewOnScreen sid i)
+    windows (onScreen (view i) (FocusTag i) sid)
 
 main = xmonad $ gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
