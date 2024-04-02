@@ -52,6 +52,8 @@ main = xmonad $ gnomeConfig {
         -- start update-manager on startup because we don't have the normal
         -- Ubuntu session to do that for us
         spawn "update-manager"
+        -- kill Wine/P.O.D.
+        spawn "killall -9 wineserver64 winedevice.exe PODX#fx.exe",
     ],
     handleEventHook = composeAll [
         handleEventHook gnomeConfig,
