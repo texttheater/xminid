@@ -6,7 +6,6 @@ import XMonad
 import XMonad.Actions.OnScreen
 import XMonad.Config.Gnome
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.SetWMName (setWMName)
 import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
