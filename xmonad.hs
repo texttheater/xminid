@@ -10,6 +10,9 @@ import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
+viewOnScreen' dis sid =
+    windows (viewOnScreen dis sid)
+
 main = xmonad $ gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
     modMask = mod4Mask,
@@ -65,15 +68,15 @@ main = xmonad $ gnomeConfig {
         smartBorders $
         layoutHook gnomeConfig
 } `additionalKeys` ([
-    ((mod4Mask, xK_1), windows (viewOnScreen 0 "1")),
-    ((mod4Mask, xK_2), windows (viewOnScreen 0 "2")),
-    ((mod4Mask, xK_3), windows (viewOnScreen 0 "3")),
-    ((mod4Mask, xK_4), windows (viewOnScreen 0 "4")),
-    ((mod4Mask, xK_5), windows (viewOnScreen 0 "5")),
-    ((mod4Mask, xK_6), windows (viewOnScreen lastDisplay "6")),
-    ((mod4Mask, xK_7), windows (viewOnScreen lastDisplay "7")),
-    ((mod4Mask, xK_8), windows (viewOnScreen lastDisplay "8")),
-    ((mod4Mask, xK_9), windows (viewOnScreen lastDisplay "9"))
+    ((mod4Mask, xK_1), (viewOnScreen' 0 "1")),
+    ((mod4Mask, xK_2), (viewOnScreen' 0 "2")),
+    ((mod4Mask, xK_3), (viewOnScreen' 0 "3")),
+    ((mod4Mask, xK_4), (viewOnScreen' 0 "4")),
+    ((mod4Mask, xK_5), (viewOnScreen' 0 "5")),
+    ((mod4Mask, xK_6), (viewOnScreen' lastDisplay "6")),
+    ((mod4Mask, xK_7), (viewOnScreen' lastDisplay "7")),
+    ((mod4Mask, xK_8), (viewOnScreen' lastDisplay "8")),
+    ((mod4Mask, xK_9), (viewOnScreen' lastDisplay "9"))
     ])
 
 fullscreenStartupHook :: X ()
