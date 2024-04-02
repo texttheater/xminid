@@ -10,8 +10,8 @@ import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
-viewOnScreen' dis sid =
-    windows (viewOnScreen dis sid)
+viewOnScreen' sid i =
+    windows (viewOnScreen sid i)
 
 main = xmonad $ gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
