@@ -9,7 +9,7 @@ import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet (view)
 import XMonad.Util.EZConfig (additionalKeys)
 
-viewOnFirstScreen :: WorkspaceId -> X()
+viewOnFirstScreen :: WorkspaceId -> X ()
 viewOnFirstScreen i = do
    windows (onScreen (view i) (FocusTag i) 0)
 
