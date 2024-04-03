@@ -6,12 +6,20 @@ import XMonad
 import XMonad.Actions.OnScreen
 import XMonad.Config.Gnome
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders
 import XMonad.StackSet (view)
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
-viewOnScreen' sid i =
+viewOnFirstScreen :: WorkspaceId -> X()
+viewOnFirstScreen i = do
+   windows (onScreen (view i) (FocusTag i) 0)
+
+viewOnLastScreen :: WorkspaceId -> X ()
+viewOnLastScreen i = do
+    numScreens <- countScreens
+    let sid = numScreens - 1
     windows (onScreen (view i) (FocusTag i) sid)
 
 main = xmonad $ gnomeConfig {
@@ -69,15 +77,15 @@ main = xmonad $ gnomeConfig {
         smartBorders $
         layoutHook gnomeConfig
 } `additionalKeys` ([
-    ((mod4Mask, xK_1), (viewOnScreen' 0 "1")),
-    ((mod4Mask, xK_2), (viewOnScreen' 0 "2")),
-    ((mod4Mask, xK_3), (viewOnScreen' 0 "3")),
-    ((mod4Mask, xK_4), (viewOnScreen' 0 "4")),
-    ((mod4Mask, xK_5), (viewOnScreen' 0 "5")),
-    ((mod4Mask, xK_6), (viewOnScreen' lastDisplay "6")),
-    ((mod4Mask, xK_7), (viewOnScreen' lastDisplay "7")),
-    ((mod4Mask, xK_8), (viewOnScreen' lastDisplay "8")),
-    ((mod4Mask, xK_9), (viewOnScreen' lastDisplay "9"))
+    ((mod4Mask, xK_1), (viewOnFirstScreen "1")),
+    ((mod4Mask, xK_2), (viewOnFirstScreen "2")),
+    ((mod4Mask, xK_3), (viewOnFirstScreen "3")),
+    ((mod4Mask, xK_4), (viewOnFirstScreen "4")),
+    ((mod4Mask, xK_5), (viewOnFirstScreen "5")),
+    ((mod4Mask, xK_6), (viewOnLastScreen "6")),
+    ((mod4Mask, xK_7), (viewOnLastScreen "7")),
+    ((mod4Mask, xK_8), (viewOnLastScreen "8")),
+    ((mod4Mask, xK_9), (viewOnLastScreen "9"))
     ])
 
 fullscreenStartupHook :: X ()
