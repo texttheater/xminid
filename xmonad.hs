@@ -1,5 +1,3 @@
-import LocalConfig
-
 import Control.Monad (join, when)
 import Data.Maybe (maybeToList)
 import XMonad

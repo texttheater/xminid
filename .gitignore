@@ -3,4 +3,3 @@
 *.hi
 *.o
 *.state
-/lib/LocalConfig.hs
