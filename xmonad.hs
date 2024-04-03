@@ -6,18 +6,8 @@ import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.StackSet (view)
+import XMonad.StackSet (greedyView)
 import XMonad.Util.EZConfig (additionalKeys)
-
-viewOnFirstScreen :: WorkspaceId -> X ()
-viewOnFirstScreen i = do
-   windows (onScreen (view i) (FocusTag i) 0)
-
-viewOnLastScreen :: WorkspaceId -> X ()
-viewOnLastScreen i = do
-    numScreens <- countScreens
-    let sid = numScreens - 1
-    windows (onScreen (view i) (FocusTag i) sid)
 
 main = xmonad $ gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
@@ -68,16 +58,30 @@ main = xmonad $ gnomeConfig {
         smartBorders $
         layoutHook gnomeConfig
 } `additionalKeys` ([
-    ((mod4Mask, xK_1), (viewOnFirstScreen "1")),
-    ((mod4Mask, xK_2), (viewOnFirstScreen "2")),
-    ((mod4Mask, xK_3), (viewOnFirstScreen "3")),
-    ((mod4Mask, xK_4), (viewOnFirstScreen "4")),
-    ((mod4Mask, xK_5), (viewOnFirstScreen "5")),
-    ((mod4Mask, xK_6), (viewOnLastScreen "6")),
-    ((mod4Mask, xK_7), (viewOnLastScreen "7")),
-    ((mod4Mask, xK_8), (viewOnLastScreen "8")),
-    ((mod4Mask, xK_9), (viewOnLastScreen "9"))
+    ((mod4Mask, xK_1), (viewOnScreen firstScreen "1")),
+    ((mod4Mask, xK_2), (viewOnScreen firstScreen "2")),
+    ((mod4Mask, xK_3), (viewOnScreen firstScreen "3")),
+    ((mod4Mask, xK_4), (viewOnScreen firstScreen "4")),
+    ((mod4Mask, xK_5), (viewOnScreen firstScreen "5")),
+    ((mod4Mask, xK_6), (viewOnScreen lastScreen "6")),
+    ((mod4Mask, xK_7), (viewOnScreen lastScreen "7")),
+    ((mod4Mask, xK_8), (viewOnScreen lastScreen "8")),
+    ((mod4Mask, xK_9), (viewOnScreen lastScreen "9"))
     ])
+
+viewOnScreen :: X ScreenId -> WorkspaceId -> X ()
+viewOnScreen sid i = do
+    sid <- sid
+    windows (onScreen (greedyView i) (FocusTag i) sid)
+
+firstScreen :: X ScreenId
+firstScreen = do
+    return 0
+
+lastScreen :: X ScreenId
+lastScreen = do
+    numScreens <- countScreens
+    return (numScreens - 1)
 
 fullscreenStartupHook :: X ()
 fullscreenStartupHook = withDisplay $ \dpy -> do
