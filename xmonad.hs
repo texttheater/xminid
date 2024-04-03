@@ -1,16 +1,15 @@
 import LocalConfig
 
-import Control.Monad
-import Data.Maybe
+import Control.Monad (join, when)
+import Data.Maybe (maybeToList)
 import XMonad
-import XMonad.Actions.OnScreen
-import XMonad.Config.Gnome
-import XMonad.Hooks.EwmhDesktops
+import XMonad.Actions.OnScreen (Focus(FocusTag), onScreen)
+import XMonad.Config.Gnome (gnomeConfig)
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Layout.IndependentScreens (countScreens)
-import XMonad.Layout.NoBorders
+import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet (view)
-import XMonad.Util.EZConfig
-import XMonad.Util.Run
+import XMonad.Util.EZConfig (additionalKeys)
 
 viewOnFirstScreen :: WorkspaceId -> X()
 viewOnFirstScreen i = do
