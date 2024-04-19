@@ -31,9 +31,12 @@ main = xmonad $ gnomeConfig {
         className =? "Evince" --> doShift "6",
         className =? "okular" --> doShift "6",
         className =? "firefox" --> doShift "7",
+        className =? "mpv" --> doShift "8",
         className =? "Zotero" --> doShift "8",
         className =? "update-manager" --> doShift "9",
-        className =? "Update-manager" --> doShift "9"
+        className =? "Update-manager" --> doShift "9",
+        className =? "qbittorrent" --> doShift "9",
+        className =? "qBittorrent" --> doShift "9"
     ],
     startupHook = composeAll [
         startupHook gnomeConfig,
