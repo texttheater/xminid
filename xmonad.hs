@@ -3,13 +3,13 @@ import Data.Maybe (maybeToList)
 import XMonad
 import XMonad.Actions.OnScreen (Focus(FocusTag), onScreen)
 import XMonad.Config.Gnome (gnomeConfig)
-import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
+import XMonad.Hooks.EwmhDesktops (ewmhFullscreen)
 import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet (greedyView)
 import XMonad.Util.EZConfig (additionalKeys)
 
-main = xmonad $ gnomeConfig {
+main = xmonad $ ewmhFullscreen gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
     modMask = mod4Mask,
     manageHook = composeAll [
@@ -48,11 +48,6 @@ main = xmonad $ gnomeConfig {
         spawn "update-manager",
         -- kill Wine/P.O.D.
         spawn "killall -9 wineserver64 winedevice.exe PODX#fx.exe"
-    ],
-    handleEventHook = composeAll [
-        handleEventHook gnomeConfig,
-        -- fix fullscreen
-        fullscreenEventHook
     ],
     layoutHook = 
         -- no borders around the only window on screen
