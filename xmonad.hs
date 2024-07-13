@@ -1,11 +1,9 @@
-import Control.Monad
-import Data.Maybe
+import Control.Monad (join, when)
+import Data.Maybe (maybeToList)
 import XMonad
-import XMonad.Config.Gnome
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.SetWMName (setWMName)
-import XMonad.Util.EZConfig
-import XMonad.Util.Run
+import XMonad.Config.Gnome (gnomeConfig)
+import XMonad.Hooks.EwmhDesktops (ewmhFullscreen)
+import XMonad.Util.EZConfig (additionalKeys)
 
 main = xmonad $ ewmhFullscreen gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
