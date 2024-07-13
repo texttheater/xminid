@@ -7,7 +7,7 @@ import XMonad.Hooks.SetWMName (setWMName)
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
-main = xmonad $ gnomeConfig {
+main = xmonad $ ewmhFullscreen gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
     modMask = mod4Mask,
     startupHook = composeAll [
@@ -15,11 +15,6 @@ main = xmonad $ gnomeConfig {
         -- fix fullscreen for Firefox
         -- https://github.com/xmonad/xmonad-contrib/issues/288
         fullscreenStartupHook
-    ],
-    handleEventHook = composeAll [
-        handleEventHook gnomeConfig,
-        -- fix fullscreen
-        fullscreenEventHook
     ]
 } `additionalKeys` [
     -- Workaround for
