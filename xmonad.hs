@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-deprecations #-}
+
 import Control.Monad (join, when)
 import Data.Maybe (maybeToList)
 import XMonad
