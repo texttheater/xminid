@@ -3,13 +3,13 @@ import Data.Maybe (maybeToList)
 import XMonad
 import XMonad.Actions.OnScreen (Focus(FocusTag), onScreen)
 import XMonad.Config.Gnome (gnomeConfig)
-import XMonad.Hooks.EwmhDesktops (ewmhFullscreen)
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet (greedyView)
 import XMonad.Util.EZConfig (additionalKeys)
 
-main = xmonad $ ewmhFullscreen gnomeConfig {
+main = xmonad $ gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
     modMask = mod4Mask,
     manageHook = composeAll [
@@ -53,7 +53,12 @@ main = xmonad $ ewmhFullscreen gnomeConfig {
     layoutHook = 
         -- no borders around the only window on screen
         smartBorders $
-        layoutHook gnomeConfig
+        layoutHook gnomeConfig,
+    handleEventHook = composeAll [
+        handleEventHook gnomeConfig,
+        -- fix fullscreen
+        fullscreenEventHook
+    ]
 } `additionalKeys` ([
     ((mod4Mask, xK_1), (viewOnScreen firstScreen "1")),
     ((mod4Mask, xK_2), (viewOnScreen firstScreen "2")),
