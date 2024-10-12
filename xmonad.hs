@@ -2,7 +2,7 @@ import Control.Monad (join, when)
 import Data.Maybe (maybeToList)
 import XMonad
 import XMonad.Config.Gnome (gnomeConfig)
-import XMonad.Hooks.EwmhDesktops (ewmhFullscreen)
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Util.EZConfig (additionalKeys)
 
 main = xmonad $ gnomeConfig {
