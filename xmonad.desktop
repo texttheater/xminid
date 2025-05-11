@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=XMonad
+Comment=Replace Metacity (if running) with xmonad
+Exec=sh -c 'wmctrl -m | head -1 | grep Metacity && /usr/bin/xmonad --replace'
+Icon=variety
+Terminal=false
+Type=Application
+X-GNOME-Autostart-Delay=2
+X-GNOME-Autostart-enabled=true

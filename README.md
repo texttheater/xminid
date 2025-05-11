@@ -1,8 +1,8 @@
 xminid
 ======
 
-A minimal xmonad configuration with panels for Ubuntu 18.04 “Bionic Beaver”,
-Ubuntu 20.04 “Focal Fossa”, and Ubuntu 22.04 “Jammy Jellyfish”.
+A minimal xmonad configuration with panels for Ubuntu 20.04 “Focal Fossa”,
+Ubuntu 22.04 “Jammy Jellyfish”, and Ubuntu 24.03 “Noble Numbat”.
 
 By [Kilian Evang](https://github.com/texttheater).
 
@@ -30,32 +30,20 @@ So I thought I'd put together a curated minimal xmonad config that fixes these
 issues but otherwise gives you a clean slate to add your own favorite
 configuration options.
 
-Setup for Ubuntu 18.04
-----------------------
-
-To install everything you need, run these commands in a terminal:
-
-    $ sudo apt install xmonad gnome-panel
-    $ cd
-    $ git clone https://github.com/texttheater/xminid-bionic .xmonad
-
-From now on, when logging in, choose the *GNOME Flashback (Xmonad)* session.
-
 Setup for Ubuntu 20.04 and 22.04
 --------------------------------
 
-For Ubuntu 20.04 and 22.04, the procedure is slightly more complex: due to a
-[bug](https://bugs.launchpad.net/ubuntu/+source/xmonad/+bug/1919089), the
-*GNOME Flashback (Xmonad)* session does not work. I recommend you use [Gekkio’s
-Gnome + XMonad](https://github.com/Gekkio/gnome-session-xmonad) session
-instead. The complete setup procedure then is:
+Due to a [bug](https://bugs.launchpad.net/ubuntu/+source/xmonad/+bug/1919089),
+the *GNOME Flashback (Xmonad)* session does not work. I recommend you use
+[Gekkio’s Gnome + XMonad](https://github.com/Gekkio/gnome-session-xmonad)
+session instead. The complete setup procedure then is:
 
     $ sudo apt install xmonad gnome-panel
     $ sudo add-apt-repository ppa:gekkio/xmonad
     $ sudo apt update
     $ sudo apt install gnome-session-xmonad
     $ cd
-    $ git clone https://github.com/texttheater/xminid-bionic .xmonad
+    $ git clone https://github.com/texttheater/xminid .xmonad
 
 In addition, to work around a [bug](https://github.com/Gekkio/gnome-session-xmonad/issues/14)
 where panels are not visible, run this:
@@ -64,6 +52,24 @@ where panels are not visible, run this:
     $ gsettings set org.gnome.gnome-flashback desktop false
 
 From now on, when logging in, choose the *Gnome+XMonad* session.
+
+Setup for Ubuntu 24.04
+----------------------
+
+Gekkio’s Gnome + Xmonad session is no longer updated so there is no package for
+Ubuntu 24.04. Instead, I’ve taken to using the ‘Gnome Flashback (Metacity)’
+session and using the autostart feature to replace Metacity with Xmonad after
+logging in, courtesy of [symmetry81 on
+reddit](https://www.reddit.com/r/xmonad/comments/nyfq5b/xmonad_and_gnome_in_ubuntu_2104_success/),
+adapted to do nothing if Metacity is not running so that you can still use the
+‘Ubuntu’ session using Gnome Shell as well. The complete setup procedure then
+is:
+
+    $ sudo apt install xmonad gnome-flashback gnome-panel
+    $ cd
+    $ git clone https://github.com/texttheater/xminid .xmonad
+    $ mkdir -p .config/autostart
+    $ cp .xmonad/xmonad.desktop .config/autostart
 
 Usage
 -----
