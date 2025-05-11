@@ -65,7 +65,7 @@ adapted to do nothing if Metacity is not running so that you can still use the
 ‘Ubuntu’ session using Gnome Shell as well. The complete setup procedure then
 is:
 
-    $ sudo apt install xmonad gnome-flashback gnome-panel
+    $ sudo apt install gnome-flashback gnome-panel wmctrl xmonad
     $ cd
     $ git clone https://github.com/texttheater/xminid .xmonad
     $ mkdir -p .config/autostart
