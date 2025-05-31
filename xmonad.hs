@@ -54,7 +54,7 @@ main = xmonad $ gnomeConfig {
         -- Ubuntu session to do that for us
         spawn "update-manager",
         -- kill Wine/P.O.D.
-        spawn "killall -9 wineserver64 winedevice.exe PODX#fx.exe"
+        spawn "killall -9 wineserver32 POD3Dfx.exe"
     ],
     layoutHook = 
         -- no borders around the only window on screen
