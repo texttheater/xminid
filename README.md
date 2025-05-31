@@ -2,7 +2,7 @@ xminid
 ======
 
 A minimal xmonad configuration with panels for Ubuntu 20.04 “Focal Fossa”,
-Ubuntu 22.04 “Jammy Jellyfish”, and Ubuntu 24.03 “Noble Numbat”.
+Ubuntu 22.04 “Jammy Jellyfish”, and Ubuntu 24.04 “Noble Numbat”.
 
 By [Kilian Evang](https://github.com/texttheater).
 
