@@ -82,6 +82,10 @@ The key binding for switching to the next layout (Mod+Space) conflicts with
 Ubuntu's default for switching to the next input source. Consider disabling or
 changing the latter via Ubuntu's keyboard shortcut settings.
 
+The key binding for growing the main area (Mod+L) conflicts with Ubuntu's
+default for locking the screen. Consider disabling or changing the latter via
+Ubuntu's keyboard shortcut settings.
+
 You may find that the GNOME panels are missing some standard items, or they are
 in weird places, or duplicated. To fix this, alt-rightclick on the relevant
 places of the panels and choose *Add to Panel...*, *Move*, or *Remove from
