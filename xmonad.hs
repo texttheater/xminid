@@ -55,7 +55,11 @@ main = xmonad $ gnomeConfig {
         -- it grabbing focus)
         spawn "wmctrl -d | grep '*' | cut -d ' ' -f 1 > ~/.xmonad/current-desktop.txt; update-manager; wmctrl -s $(cat ~/.xmonad/current-desktop.txt)",
         -- kill Wine/P.O.D.
-        spawn "killall -9 wineserver32 POD3Dfx.exe"
+        spawn "killall -9 wineserver32 POD3Dfx.exe",
+        -- restart Gnome Panel (a frequent necessity on Ubuntu 24.04, alas;
+        -- unrelated to xmonad startup but it is handy to have one key
+        -- combination restart both)
+        spawn "gnome-panel --replace"
     ],
     layoutHook = 
         -- no borders around the only window on screen
