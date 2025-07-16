@@ -1,4 +1,5 @@
 /build-x86_64-linux
+/current-desktop.txt
 /xmonad-x86_64-linux
 /xmonad.errors
 *.hi
