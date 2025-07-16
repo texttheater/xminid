@@ -51,8 +51,9 @@ main = xmonad $ gnomeConfig {
         -- https://github.com/xmonad/xmonad-contrib/issues/288
         fullscreenStartupHook,
         -- start update-manager on startup because we don't have the normal
-        -- Ubuntu session to do that for us
-        spawn "update-manager",
+        -- Ubuntu session to do that for us (plus some shell foo to work around
+        -- it grabbing focus)
+        spawn "wmctrl -d | grep '*' | cut -d ' ' -f 1 > ~/.xmonad/current-desktop.txt; update-manager; wmctrl -s $(cat ~/.xmonad/current-desktop.txt)",
         -- kill Wine/P.O.D.
         spawn "killall -9 wineserver32 POD3Dfx.exe"
     ],
