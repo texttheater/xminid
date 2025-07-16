@@ -86,10 +86,14 @@ The key binding for growing the main area (Mod+L) conflicts with Ubuntu's
 default for locking the screen. Consider disabling or changing the latter via
 Ubuntu's keyboard shortcut settings.
 
-You may find that the GNOME panels are missing some standard items, or they are
-in weird places, or duplicated. To fix this, alt-rightclick on the relevant
-places of the panels and choose *Add to Panel...*, *Move*, or *Remove from
-Panel* to add, move, or remove items as desired.
+You can customize the panels by holding down Alt and right-clicking on them. I
+like to customize them as follows:
+
+* Top left: Main Menu (default)
+* Top center: Clock
+* Top right: System Indicators, Indicator Applet Session
+* Bottom left: Force Quit, Window List
+* Bottom right: Workspace Switcher (default)
 
 To customize your xmonad setup, edit `~/.xmonad/xmonad.hs` as usual. For more
 information, check the [xmonad
