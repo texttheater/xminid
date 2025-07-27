@@ -6,10 +6,10 @@ import XMonad
 import XMonad.Actions.OnScreen (Focus(FocusTag), onScreen)
 import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
-import XMonad.Layout.IndependentScreens (countScreens)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.StackSet (greedyView)
 import XMonad.Util.EZConfig (additionalKeys)
+import XMonad.Util.Run (runProcessWithInput)
 
 main = xmonad $ gnomeConfig {
     -- Use Win key rather than Alt. Alt is used by GNOME for many things.
@@ -93,8 +93,11 @@ firstScreen = do
 
 lastScreen :: X ScreenId
 lastScreen = do
-    numScreens <- countScreens
-    return (numScreens - 1)
+    -- Two joined monitors -> last screen ID is 1
+    -- One monitor or two mirrored monitors -> last screen ID is 0
+    -- Determine the current situation by counting the distinct offsets in the output of xrandr --listmonitors
+    ls <- runProcessWithInput "bash" ["-c", "xrandr --listmonitors | grep -o '+[[:digit:]]\\++[[:digit:]]\\+' | sort -u | wc -l"] ""
+    return (if ls == "2\n" then 1 else 0)
 
 fullscreenStartupHook :: X ()
 fullscreenStartupHook = withDisplay $ \dpy -> do
