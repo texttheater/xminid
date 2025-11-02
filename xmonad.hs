@@ -26,6 +26,7 @@ main = xmonad $ gnomeConfig {
         className =? "Mail" --> doShift "2",
         className =? "thunderbird" --> doShift "2",
         className =? "thunderbird-esr" --> doShift "2",
+        className =? "thunderbird_thunderbird" --> doShift "2",
         className =? "code" --> doShift "4",
         className =? "Code" --> doShift "4",
         className =? "libreoffice" --> doShift "5",
