@@ -30,6 +30,7 @@ main = xmonad $ gnomeConfig {
         className =? "code" --> doShift "4",
         className =? "Code" --> doShift "4",
         className =? "libreoffice" --> doShift "5",
+        className =? "libreoffice-calc" --> doShift "5",
         className =? "libreoffice-startcenter" --> doShift "5",
         className =? "libreoffice-writer" --> doShift "5",
         className =? "soffice" --> doShift "5",
