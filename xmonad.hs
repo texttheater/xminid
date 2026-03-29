@@ -55,10 +55,9 @@ main = xmonad $ gnomeConfig {
         -- fix fullscreen for Firefox
         -- https://github.com/xmonad/xmonad-contrib/issues/288
         fullscreenStartupHook,
-        -- start update-manager on startup because we don't have the normal
-        -- Ubuntu session to do that for us (plus some shell foo to work around
-        -- it grabbing focus)
-        spawn "wmctrl -d | grep '*' | cut -d ' ' -f 1 > ~/.xmonad/current-desktop.txt; update-manager; wmctrl -s $(cat ~/.xmonad/current-desktop.txt)",
+        -- Start update-manager because we don't have the normal Ubuntu session
+        -- to do that for us. Kill it first so it doesn't grab focus.
+        spawn "killall update-manager; update-manager",
         -- kill Wine/P.O.D.
         spawn "killall -9 wineserver32 POD3Dfx.exe",
         -- restart Gnome Panel (a frequent necessity on Ubuntu 24.04, alas;
