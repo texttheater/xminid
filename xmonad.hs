@@ -29,6 +29,7 @@ main = xmonad $ gnomeConfig {
         className =? "thunderbird_thunderbird" --> doShift "2",
         className =? "code" --> doShift "4",
         className =? "Code" --> doShift "4",
+        className =? "dev.zed.Zed" --> doShift "4",
         className =? "libreoffice" --> doShift "5",
         className =? "libreoffice-calc" --> doShift "5",
         className =? "libreoffice-startcenter" --> doShift "5",
