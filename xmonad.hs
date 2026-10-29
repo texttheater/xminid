@@ -17,8 +17,8 @@ main = xmonad $ gnomeConfig {
     manageHook = composeAll [
         manageHook gnomeConfig,
         -- open applications on specific workspaces
-        className =? "Skype" --> doShift "1",
-        className =? "skype" --> doShift "1",
+        className =? "google-chrome" --> doShift "1",
+        className =? "Google-chrome" --> doShift "1",
         className =? "Signal" --> doShift "1",
         className =? "signal" --> doShift "1",
         className =? "signal-desktop" --> doShift "1",
